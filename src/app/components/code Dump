@@ -1,0 +1,51 @@
+import Image from "next/image";
+import clsx from "clsx";
+
+interface CardProps {
+  className?: string;
+  variant?: "assetStyles" | "assetStylesBottom" | "secondAssetStyles" | "secondAssetStylesBottom";
+  children: React.ReactNode;
+};
+
+const GreenCard = ({children, variant, className} :CardProps) => {
+    const baseStyles = "relative w-full -mt-[280px] px-[29px]";
+    
+    const variantStyles: Record<"assetStyles" | "assetStylesBottom" | "secondAssetStyles" | "secondAssetStylesBottom", string> = {
+        assetStyles : "absolute w-full h-[242px] top-[-10px] left-[51%] -translate-x-[50%]",
+        assetStylesBottom : "absolute w-full h-[242px] bottom-[-10px] left-[133%] -translate-x-[50%]",
+        secondAssetStyles : "",
+        secondAssetStylesBottom : "absolute w-full h-[242px] bottom-[-10px] left-[133%] -translate-x-[50%]",
+    };
+  return (
+    <section className={clsx(baseStyles, className )}>
+
+        {/* Top asset */}
+      <div className="absolute w-full h-[242px] top-[-10px] left-[51%] -translate-x-[50%]">
+        <div className="relative w-[242px] h-[242px] px-[29px] ">
+          <Image
+            src="/asset.svg"
+            alt="background asset"
+            className="w-full h-full object-cover "
+            fill
+          />
+        </div>
+      </div>
+
+      {/* Bottom asset */}
+      <div className="absolute w-full h-[242px] bottom-[-10px] left-[133%] -translate-x-[50%]">
+        <div className="relative w-[242px] h-[242px] px-[29px] ">
+          <Image
+            src="/asset2.svg"
+            alt="background asset"
+            className="w-full h-full object-cover "
+            fill
+          />
+        </div>
+      </div>
+      
+        {children}
+      
+    </section>
+  );
+};
+export default GreenCard;
