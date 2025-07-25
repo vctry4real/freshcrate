@@ -23,29 +23,33 @@ export const whyUsContentData = [
   {
     image: "/cartIcon.svg",
     title: "Smarter Shopping",
-    description:"Skip the endless scrolling. We read your grocery list and instantly builds a cart, so you can focus on what matters.",
-    clasName:"bg-[#9BB6F7]",
-    subClassName: "bg-[#DBE5FF33]"
+    description:
+      "Skip the endless scrolling. We read your grocery list and instantly builds a cart, so you can focus on what matters.",
+    clasName: "bg-[#9BB6F7]",
+    subClassName: "bg-[#DBE5FF33]",
   },
   {
     image: "/timeIcon.svg",
     title: "Time Saving",
-    description:"No more bouncing between categories and filters. Go from list to checkout in just minutes.",
-    clasName:"bg-[#C6EACE]",
-    subClassName: "bg-[#DBFBE280]"
+    description:
+      "No more bouncing between categories and filters. Go from list to checkout in just minutes.",
+    clasName: "bg-[#C6EACE]",
+    subClassName: "bg-[#DBFBE280]",
   },
   {
-    image: "/vehicle.svg",
+    image: "/vehicle2.svg",
     title: "Delivery options ",
-    description: "Lorem ipsum dolor sit amet consectetur.",
-    clasName:"bg-[#EFE4C9]",
-    subClassName: "bg-[#FCF5E680]"
+    description:
+      "Choose a delivery time and date that is most convenient for you",
+    clasName: "bg-[#EFE4C9]",
+    subClassName: "bg-[#FCF5E680]",
   },
   {
     image: "/shoppingCart.svg",
     title: "Quality",
-    description:"No surprises, what you order is what you will receive. Our team is international about your order",
-    clasName:"bg-[#A6DDD4]",
-    subClassName: "bg-[#C9E9E380]"
+    description:
+      "No surprises, what you order is what you will receive. Our team is international about your order",
+    clasName: "bg-[#A6DDD4]",
+    subClassName: "bg-[#C9E9E380]",
   },
 ];

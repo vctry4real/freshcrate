@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Card } from "@/app/components/cards/Card";
 import {
@@ -7,12 +8,27 @@ import {
 import { Accordion } from "./components/ui/Accordion";
 import GreenCard from "@/app/components/cards/GreenCard";
 import Button from "./components/ui/Button";
+import { useRef } from "react";
+import { useGsapHeroAnimation } from "./components/hooks/useGsapHeroAnimation";
+import { useGsapHowItWorksAnimation } from "./components/hooks/useGsapHowItWorksAnimation";
+import { useGsapWhyUs } from "./components/hooks/useGsapWhyUsAnimation";
 
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const howItWorksRef = useRef<HTMLDivElement>(null);
+  const whyUsRef = useRef<HTMLDivElement>(null);
+  useGsapHeroAnimation(heroRef);
+  useGsapHowItWorksAnimation(howItWorksRef);
+  useGsapWhyUs(whyUsRef);
+
   return (
     <div className=" py-[80px]">
       <main className=" w-ful flex flex-col items-center gap-y-[58px] md:gap-y-[110px] overflow-hidden">
-        <section className="w-full flex flex-col items-center gap-y-[40px] px-[29px]">
+        {/* Hero Section  */}
+        <section
+          ref={heroRef}
+          className="w-full flex flex-col items-center gap-y-[40px] px-[29px]"
+        >
           <div className="w-full flex flex-col gap-y-[28px]">
             <div className="flex flex-col items-center gap-y-[16px]">
               <h2 className="w-[347px] font-bold t text-[32px] md:text-[80px] leading-[100%]  text-[#000000] text-center md:w-[1023px]">
@@ -36,7 +52,7 @@ export default function Home() {
           </div>
         </section>
         {/* How it works */}
-        <section id="how-it-works" className="px-[29px]">
+        <section ref={howItWorksRef} id="how-it-works" className="px-[29px]">
           <div className="">
             <h2 className="font-bold text-[24px] md:text-[60px] leading-[100%] text-[#000000] text-center">
               Stress-free Shopping Experience
@@ -49,7 +65,7 @@ export default function Home() {
                   description={item.description}
                   imageUrl={item.image}
                   subClassName="bg-[#F6FEF6] rounded-3xl"
-                  className="md:mb-[40px] bg-[#F2F4F7]"
+                  className="card-animation md:mb-[40px] bg-[#F2F4F7] md:w-[388px] md:h-[324px] "
                   variant="primary"
                 />
               ))}
@@ -59,6 +75,7 @@ export default function Home() {
 
         {/* Why choose us */}
         <section
+          ref={whyUsRef}
           id="why-cliqcart"
           className="w-full bg-[#E1FCE266] px-[29px] pt-[64px] pb-[294px] "
         >
@@ -76,7 +93,6 @@ export default function Home() {
               <div className="w-[349px] h-[484px] order-2 relative rounded-[20px] md:w-[627px] md:h-full md:order-1 ">
                 <video
                   src="/freshcart.mp4"
-                  controls
                   autoPlay
                   loop
                   muted

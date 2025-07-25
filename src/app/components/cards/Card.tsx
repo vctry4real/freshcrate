@@ -38,7 +38,7 @@ export const Card = ({
         </div>
       </div>
       <div className="col-span-2 flex flex-col items-start gap-y-[12px] md:gap-y-[24px]">
-        <h3 className="text-[18px] font-bold text-gray-800 md:text-xl">
+        <h3 className="text-[18px] font-bold text-gray-800 md:text-[24px]">
           {title}
         </h3>
         <p className="text-gray-600 text-[12px]">{description}</p>

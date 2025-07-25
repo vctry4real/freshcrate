@@ -21,23 +21,31 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="hidden md:flex">
           <ul className="flex items-center gap-x-[40px]">
-            <li>
-              <Link href="#why-cliqcart" className="hover:underline">
+            <li className=" hover:motion-safe:animate-bounce hover:text-[#16A34A]">
+              <Link href="#why-cliqcart" className="hover:no-underline">
                 Why cliqcart
               </Link>
             </li>
-            <li>
-              <Link href="#how-it-works" className="hover:underline">
+            <li className="hover:motion-safe:animate-bounce hover:text-[#16A34A]">
+              <Link href="#how-it-works" className="hover:no-underline">
                 How it works
               </Link>
             </li>
-            <li>
-              <Link href="#faq" className="hover:underline">
+            <li className="hover:motion-safe:animate-bounce hover:text-[#16A34A]">
+              <Link href="#faq" className="hover:no-underline">
                 FAQ
               </Link>
             </li>
-            <li>
-              <Button>Join waitlist</Button>
+            <li className="hover:motion-safe:animate-bounce">
+              <Button className="hover:animate-pulse">
+                <a
+                  href="https://forms.gle/s5PYPboEDxvNj84X7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Get Early Access
+                </a>
+              </Button>
             </li>
           </ul>
         </div>
@@ -54,8 +62,8 @@ const Navbar = () => {
           </div>
 
           {isOpen && (
-            <div className="absolute right-1 mt-2 py-[20px] bg-[#16A34A] text-white z-30">
-              <ul className="w-full flex flex-col gap-y-[20px] divide-y-1 divide-white items-center justify-center">
+            <div className="absolute w-full right-1 mt-2 py-[20px] bg-[#16A34A] rounded-[20px] opacity-95  text-white z-30">
+              <ul className="w-full flex flex-col gap-y-[20px] divide-y-1 px-[20px] divide-white items-start justify-center">
                 <li>
                   <Link href="#why-cliqcart" className="hover:underline">
                     Why cliqcart
@@ -72,7 +80,15 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Button>Join waitlist</Button>
+                  <Button>
+                    <a
+                      href="https://forms.gle/s5PYPboEDxvNj84X7"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Get Early Access
+                    </a>
+                  </Button>
                 </li>
               </ul>
             </div>
