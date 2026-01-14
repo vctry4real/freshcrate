@@ -151,23 +151,26 @@ export const Accordion = () => {
           className="w-full border rounded-[10px] border-[#A1A1A133] overflow-hidden transition-all duration-300 hover:border-[#A1A1A166] hover:shadow-lg"
         >
           <button
-            className={`w-full text-left px-[12px] py-[16px] font-medium text-[16px] leading-[100%] ${
-              openIndex === idx ? "text-[#16A34A]" : "text-[#ffffff]"
-            } focus:outline-none flex justify-between items-center md:text-[20px] md:py-4 md:px-6 transition-colors duration-300 hover:bg-[#ffffff05] group`}
+            className={`w-full text-left px-[12px] py-[16px] font-medium text-[16px] leading-[100%] ${openIndex === idx ? "text-[#16A34A]" : "text-[#ffffff]"
+              } focus:outline-none flex justify-between items-center md:text-[20px] md:py-4 md:px-6 transition-colors duration-300 hover:bg-[#ffffff05] group`}
             onClick={() => handleToggle(idx)}
           >
             <span className="transition-colors duration-300 flex-1 pr-4">
               {item.question}
             </span>
             <span
-              ref={(el) => (iconRefs.current[idx] = el)}
+              ref={(el) => {
+                iconRefs.current[idx] = el;
+              }}
               className="flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
             >
               <ChevronDown className="w-5 h-5 md:w-6 md:h-6" />
             </span>
           </button>
           <div
-            ref={(el) => (contentRefs.current[idx] = el)}
+            ref={(el) => {
+              contentRefs.current[idx] = el;
+            }}
             className="px-6 text-[#D9D9D9] font-normal overflow-hidden"
             style={{
               display: "none",
