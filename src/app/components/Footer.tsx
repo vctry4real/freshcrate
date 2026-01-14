@@ -95,7 +95,6 @@ const Footer = () => {
                       <li>Instagram</li>
                       <li>LinkedIn</li>
                       <li>Facebook</li>
-
                     </ul>
                   </div>
                 </div>

@@ -12,14 +12,20 @@ import { useRef } from "react";
 import { useGsapHeroAnimation } from "./components/hooks/useGsapHeroAnimation";
 import { useGsapHowItWorksAnimation } from "./components/hooks/useGsapHowItWorksAnimation";
 import { useGsapWhyUs } from "./components/hooks/useGsapWhyUsAnimation";
+import { useGsapFaqAnimation } from "./components/hooks/useGsapFaqAnimation";
+import { useGsapCtaButtonAnimation } from "./components/hooks/useGsapCtaButtonAnimation";
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const howItWorksRef = useRef<HTMLDivElement>(null);
   const whyUsRef = useRef<HTMLDivElement>(null);
+  const faqRef = useRef<HTMLDivElement>(null);
+  const ctaButtonRef = useRef<HTMLButtonElement>(null);
   useGsapHeroAnimation(heroRef);
   useGsapHowItWorksAnimation(howItWorksRef);
   useGsapWhyUs(whyUsRef);
+  useGsapFaqAnimation(faqRef);
+  useGsapCtaButtonAnimation(ctaButtonRef);
 
   return (
     <div className=" py-[80px]">
@@ -67,6 +73,7 @@ export default function Home() {
                   subClassName="bg-[#F6FEF6] rounded-3xl"
                   className="card-animation md:mb-[40px] bg-[#F2F4F7] md:w-[388px] md:h-[324px] "
                   variant="primary"
+                  textStyle=""
                 />
               ))}
             </div>
@@ -109,6 +116,7 @@ export default function Home() {
                     subClassName={item.subClassName}
                     className={item.clasName}
                     variant="secondary"
+                    textStyle="md:w-[440px]"
                   />
                 ))}
               </div>
@@ -118,10 +126,10 @@ export default function Home() {
 
         {/* Commonly Asked Question */}
 
-        <section className="px-[29px]">
+        <section ref={faqRef} className="px-[29px]">
           {/* Desktop Screen */}
           <GreenCard
-            className="hidden md:block w-[371px] h-[614px]  -mt-[280px]  md:h-full px-[29px] md:w-[1299px] "
+            className="green-card hidden md:block w-[371px] h-[614px]  -mt-[280px]  md:h-full px-[29px] md:w-[1299px] "
             topVariant="topAssetStyle"
             bottomVariant="assetStyleBottom"
             src="topAsset.svg"
@@ -169,12 +177,12 @@ export default function Home() {
         </section>
 
         {/* Call To Action */}
-        <section className="px-[29px]">
+        <section className="px-[29px] pb-[30px]">
           <div className="flex flex-col items-center gap-y-[21px]">
             <h2 className="w-[319px] font-bold text-[18px] leading-[100%] text-[#000000] text-center md:text-[60px] md:w-[911px]">
               Tired of scrolling endlessly through online grocery stores?
             </h2>
-            <Button>Join Waitlist</Button>
+            <Button ref={ctaButtonRef}>Join Waitlist</Button>
           </div>
         </section>
       </main>

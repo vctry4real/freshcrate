@@ -25,7 +25,7 @@ export const whyUsContentData = [
     title: "Smarter Shopping",
     description:
       "Skip the endless scrolling. We read your grocery list and instantly builds a cart, so you can focus on what matters.",
-    clasName: "bg-[#9BB6F7]",
+    clasName: "bg-[#9BB6F7] whycard-animation",
     subClassName: "bg-[#DBE5FF33]",
   },
   {
@@ -33,7 +33,7 @@ export const whyUsContentData = [
     title: "Time Saving",
     description:
       "No more bouncing between categories and filters. Go from list to checkout in just minutes.",
-    clasName: "bg-[#C6EACE]",
+    clasName: "bg-[#C6EACE] whycard-animation",
     subClassName: "bg-[#DBFBE280]",
   },
   {
@@ -41,7 +41,7 @@ export const whyUsContentData = [
     title: "Delivery options ",
     description:
       "Choose a delivery time and date that is most convenient for you",
-    clasName: "bg-[#EFE4C9]",
+    clasName: "bg-[#EFE4C9] whycard-animation",
     subClassName: "bg-[#FCF5E680]",
   },
   {
@@ -49,7 +49,7 @@ export const whyUsContentData = [
     title: "Quality",
     description:
       "No surprises, what you order is what you will receive. Our team is international about your order",
-    clasName: "bg-[#A6DDD4]",
+    clasName: "bg-[#A6DDD4] whycard-animation",
     subClassName: "bg-[#C9E9E380]",
   },
 ];

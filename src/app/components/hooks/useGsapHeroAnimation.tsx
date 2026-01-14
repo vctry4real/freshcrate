@@ -12,7 +12,7 @@ export const useGsapHeroAnimation = (
 
       // Dynamically import gsap and ScrollTrigger to avoid SSR issues
       const gsap = (await import("gsap")).default;
-      const ScrollTrigger = (await import("gsap/ScrollTrigger")).default;
+      const ScrollTrigger = (await import("gsap/ScrollTrigger")).ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
 
       // Ensure the target elements are present
@@ -38,7 +38,7 @@ export const useGsapHeroAnimation = (
             ease: "power3.out",
             stagger: 0.2,
             scrollTrigger: {
-                trigger: heroRef.current,
+              trigger: heroRef.current,
               start: "top 90%",
               scrub: 0.3,
             },

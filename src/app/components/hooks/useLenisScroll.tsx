@@ -23,6 +23,9 @@ export function useLenisScroll() {
 
     lenis.on("scroll", ScrollTrigger.update);
 
+    // 🔁 This forces ScrollTrigger to recalculate positions
+    ScrollTrigger.refresh();
+
     return () => {
       lenis.destroy();
     };

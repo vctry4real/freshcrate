@@ -8,36 +8,54 @@ export const useGsapWhyUs = (
   useEffect(() => {
     const animateWhyUs = async () => {
       if (!whyUsRef.current) return;
+
       const gsap = (await import("gsap")).default;
-      const ScrollTrigger = (await import("gsap/ScrollTrigger")).default;
+      const ScrollTrigger = (await import("gsap/ScrollTrigger")).ScrollTrigger;
 
       gsap.registerPlugin(ScrollTrigger);
 
-      const target = whyUsRef.current.querySelector("video");
-      if (!target) return;
+      const video = whyUsRef.current.querySelector("video");
+      const cards = gsap.utils.toArray<HTMLElement>(".whycard-animation");
+
+      if (!video || cards.length === 0) return;
 
       const ctx = gsap.context(() => {
-        gsap.fromTo(
-          target,
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: whyUsRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        });
+
+        // Video zoom + fade
+        tl.fromTo(
+          video,
+          { scale: 0.8, opacity: 0 },
+          { scale: 1.1, opacity: 1, duration: 2 }
+        );
+
+        // Slide cards in from the right
+        tl.fromTo(
+          cards,
           {
-            scale: 0.8,
+            x: 100,
             opacity: 0,
           },
           {
-            scale: 1.1,
+            x: 0,
             opacity: 1,
-            duration: 2.2,
-            scrollTrigger: {
-              trigger: whyUsRef.current,
-              start: "top 90%",
-              scrub:0.3
-            },
-          }
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "power3.out",
+          },
+          "<" // sync with video animation
         );
       }, whyUsRef);
 
       return () => ctx.revert();
     };
+
     animateWhyUs();
   }, [whyUsRef]);
 };

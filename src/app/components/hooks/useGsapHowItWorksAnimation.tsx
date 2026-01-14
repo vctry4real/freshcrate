@@ -8,15 +8,15 @@ export const useGsapHowItWorksAnimation = (
   useEffect(() => {
     const animateHowItWorksSection = async () => {
       if (!howItWorksRef.current) return;
+
       const gsap = (await import("gsap")).default;
-      const ScrollTrigger = (await import("gsap/ScrollTrigger")).default;
+      const ScrollTrigger = (await import("gsap/ScrollTrigger")).ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
 
       const targets =
         howItWorksRef.current?.querySelectorAll(".card-animation");
       if (!targets || targets.length === 0) return;
 
-      // More obvious animation: scale, rotate, fade, and bounce in
       const ctx = gsap.context(() => {
         gsap.fromTo(
           targets,
@@ -33,22 +33,23 @@ export const useGsapHowItWorksAnimation = (
             scale: 1,
             rotate: 0,
             filter: "blur(0px)",
-            duration: 1.2,
-            ease: "bounce.out",
-            stagger: 0.18,
+            duration: 0.5,
+            ease: "power3.out",
+            stagger: 0.1,
             scrollTrigger: {
               trigger: howItWorksRef.current,
-              start: "top 90%",
+              start: "top 90%", // 🔁 adjusted for earlier fire
+              end: "bottom 70%",
               scrub: 0.3,
+              // markers: true,
             },
           }
         );
       }, howItWorksRef);
 
-      // Clean up the gsap context
-      return () => ctx.revert();
+      return () => ctx.revert(); // cleanup
     };
-    // Call the animation function
+
     animateHowItWorksSection();
   }, [howItWorksRef]);
 };
